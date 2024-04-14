@@ -3,13 +3,14 @@ import {Box, Card, CardContent, CardHeader, CardMedia, Chip, Rating, Typography}
 import Link from "next/link";
 
 const restaurants = getRestaurants()
+console.log(restaurants)
 
 export default function Page() {
     return (
         <div className="flex min-h-screen flex-col justify-center items-center">
             <h1 className="font-bold text-5xl mb-5">List Page</h1>
-            {restaurants.map((restaurant) => (
-                <Link key={restaurant.id} href={{
+            {restaurants.map((restaurant, index) => (
+                <Link key={index} href={{
                     pathname: '/detail',
                     query: {
                         id: restaurant.id

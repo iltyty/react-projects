@@ -1,7 +1,7 @@
 "use client"
 
 import {getRestaurantDetail, getRestaurants} from "@/services/request";
-import {Card, CardHeader} from "@mui/material";
+import {Card, CardContent, CardHeader, Typography} from "@mui/material";
 import {Map, Marker} from "react-map-gl";
 import mapboxgl from "mapbox-gl";
 import {useRef} from "react";
@@ -19,6 +19,17 @@ export default function DetailPage({ searchParams }: { searchParams: { id: strin
         <div className="flex flex-col min-h-screen min-w-screen justify-center items-center">
             <Card className="mb-6">
                 <CardHeader title={restaurant.name} />
+                <CardContent>
+                    <Typography variant="body1">
+                        Tel: {restaurant.phone}
+                    </Typography>
+                    <Typography variant="body1">
+                        Hours: {restaurant.openingTime}
+                    </Typography>
+                    <Typography variant="body1">
+                        Intro: {restaurant.intro}
+                    </Typography>
+                </CardContent>
             </Card>
             <Map
                 mapboxAccessToken={accessToken}
